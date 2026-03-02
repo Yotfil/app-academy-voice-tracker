@@ -1,60 +1,105 @@
-# AppAcademyVoiceTracker
+# App Academy Voice Tracker
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.0.3.
+Aplicación web para registrar y hacer seguimiento de la rutina diaria de ejercicios de voz y comunicación.
 
-## Development server
+---
 
-To start a local development server, run:
+## Stack
 
-```bash
-ng serve
-```
+| Tecnología | Versión | Rol |
+|---|---|---|
+| Angular | 20 | Framework principal |
+| Angular Material | 20 | Componentes UI |
+| Tailwind CSS | 4 | Utilidades de estilo |
+| Angular CDK | 20 | BreakpointObserver, Layout |
+| RxJS | 7.8 | Programación reactiva |
+| Day.js | 1.11 | Manejo de fechas |
+| TypeScript | 5.8 | Tipado estático |
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+---
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Comandos
 
 ```bash
-ng generate --help
+npm start       # Servidor de desarrollo → http://localhost:4200
+npm run build   # Build de producción → dist/
+npm test        # Unit tests con Karma + Jasmine
 ```
 
-## Building
+---
 
-To build the project run:
+## Arquitectura
 
-```bash
-ng build
+El proyecto sigue una arquitectura en capas orientada a la separación de responsabilidades y preparada para sustituir la capa de datos en el futuro (JSON estático → API REST).
+
+```
+src/app/
+├── core/
+│   ├── adapters/          ← Implementaciones concretas de puertos
+│   ├── constants/         ← Datos estáticos (nav links, etc.)
+│   ├── models/            ← Interfaces de dominio
+│   ├── ports/             ← Abstracciones / contratos (InjectionTokens)
+│   └── services/          ← Lógica de negocio y orquestación
+│
+├── features/              ← Módulos de funcionalidad (lazy loaded)
+│   ├── dashboard/
+│   ├── exercise/          ← Card de un ejercicio individual
+│   ├── exercises/         ← Lista de ejercicios del día
+│   ├── profile/
+│   ├── routine/
+│   └── tools/
+│
+└── shared/
+    └── components/
+        ├── header/        ← Sidenav + toolbar responsive
+        ├── footer/
+        └── not-found/
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+---
 
-## Running unit tests
+## Patrón Port / Adapter
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+La persistencia está desacoplada del servicio mediante un `InjectionToken`:
 
-```bash
-ng test
+```ts
+// Puerto (contrato)
+export interface StoragePort {
+  saveRoutine(routine: Rutina): void;
+  getRoutine(date: string): Rutina | null;
+}
+export const STORAGE_PORT = new InjectionToken<StoragePort>('STORAGE_PORT');
+
+// Adaptador actual (localStorage)
+// Para cambiar a IndexedDB o API: crear nuevo adaptador e intercambiar en app.config.ts
+{ provide: STORAGE_PORT, useClass: LocalStorageAdapter }
 ```
 
-## Running end-to-end tests
+### Migración a API
 
-For end-to-end (e2e) testing, run:
+Cuando exista un backend, solo hay que:
 
-```bash
-ng e2e
-```
+1. Cambiar `loadDefaultRoutine()` en `RoutineService` para usar `HttpClient`.
+2. Crear un `ApiAdapter` que implemente `StoragePort` con llamadas HTTP.
+3. Actualizar el `provide` en `app.config.ts`.
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+---
 
-## Additional Resources
+## Rutas
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
-# app-academy-voice-tracker
+| Ruta | Componente | Estado |
+|---|---|---|
+| `/` | → redirect a `/routine` | — |
+| `/routine` | `Routine` | Activo |
+| `/exercises` | `Exercises` | Activo |
+| `/exercise/:id` | `Exercise` | Activo |
+| `/dashboard` | `Dashboard` | En desarrollo |
+| `/tools` | `Tools` | En desarrollo |
+| `/profile` | `Profile` | En desarrollo |
+| `/**` | → redirect a `/routine` | — |
+
+Todas las rutas usan **lazy loading** con `loadComponent`.
+
+---
+
+Contiene grupos de ejercicios de voz, articulación, respiración y comunicación. Se carga una vez al día (primera apertura) y se guarda en `localStorage` con la clave `routine-YYYY-MM-DD`.
