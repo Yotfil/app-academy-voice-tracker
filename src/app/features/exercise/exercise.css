@@ -1,0 +1,86 @@
+.exercise-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.exercise-card__icon-wrap {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  background: #ffe0b2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.exercise-card__icon {
+  color: #5d4037;
+  font-size: 28px;
+  width: 28px;
+  height: 28px;
+}
+
+.exercise-card__body {
+  flex: 1;
+  min-width: 0;
+}
+
+.exercise-card__line {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+}
+
+.exercise-card__line--primary {
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.87);
+  line-height: 1.4;
+}
+
+.exercise-card__line--secondary {
+  font-size: 0.8125rem;
+  color: rgba(0, 0, 0, 0.6);
+  margin-top: 0.2rem;
+}
+
+.exercise-card__index {
+  flex-shrink: 0;
+}
+
+.exercise-card__arrow {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.exercise-card__duration {
+  flex-shrink: 0;
+}
+
+.exercise-card__clock {
+  font-size: 16px;
+  width: 16px;
+  height: 16px;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.exercise-card__toggle-wrap {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.exercise-card__check {
+  color: var(--mat-sys-primary, #007d8a);
+  font-size: 22px;
+  width: 22px;
+  height: 22px;
+}

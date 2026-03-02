@@ -1,0 +1,29 @@
+<article class="exercise-card">
+  <!-- Placeholder para el icono -->
+  <div class="exercise-card__icon-wrap">
+    @if (icon(); as iconName) {
+    <mat-icon class="exercise-card__icon" [fontIcon]="iconName" />
+    }
+  </div>
+
+  <div class="exercise-card__body">
+    <p class="exercise-card__line exercise-card__line--primary">
+      <span class="exercise-card__index">{{ index() }}.</span>
+      {{ exercise().nombre }}
+      <span class="exercise-card__arrow">→</span>
+      <span class="exercise-card__duration">{{ durationLabel }}</span>
+    </p>
+    <p class="exercise-card__line exercise-card__line--secondary">
+      <mat-icon class="exercise-card__clock" fontIcon="schedule" />
+      <span>{{ exercise().horaRealizado ?? '—' }}</span>
+      <mat-icon class="exercise-card__clock" fontIcon="schedule" />
+      <span>{{ durationLabel }}</span>
+    </p>
+  </div>
+
+  <div class="exercise-card__toggle-wrap">
+    <mat-slide-toggle [checked]="exercise().hecho" (change)="onToggle($event.checked)" color="primary"
+      aria-label="Marcar como realizado" />
+
+  </div>
+</article>

@@ -1,0 +1,157 @@
+{
+  "fecha": "",
+  "grupos": [
+    {
+      "id": "",
+      "nombre": "Calentamiento facial y articulación",
+      "ejercicios": [
+        {
+          "id": "",
+          "nombre": "Masajes en mejillas y frente (circular)",
+          "descripcion": "Realizar masajes circulares en mejillas y frente para soltar tensión y activar músculos faciales.",
+          "duracion": 30,
+          "hecho": false,
+          "horaRealizado": null
+        },
+        {
+          "id": "",
+          "nombre": "Besos exagerados",
+          "descripcion": "Exagerar el movimiento de besos para activar la musculatura facial y soltar tensión.",
+          "duracion": 30,
+          "hecho": false,
+          "horaRealizado": null
+        },
+        {
+          "id": "",
+          "nombre": "Vueltas con la lengua dentro de la boca",
+          "descripcion": "Realizar movimientos circulares con la lengua dentro de la boca para activar músculos de articulación.",
+          "duracion": 30,
+          "hecho": false,
+          "horaRealizado": null
+        },
+        {
+          "id": "",
+          "nombre": "Exageración al sacar la lengua",
+          "descripcion": "Sacar la lengua de forma exagerada para activar y estirar los músculos faciales.",
+          "duracion": 30,
+          "hecho": false,
+          "horaRealizado": null
+        }
+      ]
+    },
+    {
+      "id": "",
+      "nombre": "Respiración y control del aire",
+      "ejercicios": [
+        {
+          "id": "",
+          "nombre": "Respirar de panza (aire a la barriga)",
+          "descripcion": "Dirigir el aire hacia la barriga al inhalar, buscando regular la salida del aire. No se trata de velocidad sino de control.",
+          "duracion": 50,
+          "hecho": false,
+          "horaRealizado": null
+        },
+        {
+          "id": "",
+          "nombre": "Sacar el aire como motor en los labios",
+          "descripcion": "Expulsar el aire haciendo vibrar los labios como un motor, regulando la salida del aire de forma controlada.",
+          "duracion": 35,
+          "hecho": false,
+          "horaRealizado": null
+        }
+      ]
+    },
+    {
+      "id": "",
+      "nombre": "Proyección y voz",
+      "ejercicios": [
+        {
+          "id": "",
+          "nombre": "Respirar y sacar con la S (altos y bajos)",
+          "descripcion": "Inhalar y exhalar produciendo el sonido de la S, variando entre tonos altos y bajos para activar diafragma, ritmo y energía vocal.",
+          "duracion": 50,
+          "hecho": false,
+          "horaRealizado": null
+        },
+        {
+          "id": "",
+          "nombre": "Respirar y sacar con cha cha cha tipo locomotora",
+          "descripcion": "Inhalar y exhalar produciendo el sonido cha-cha-cha con ritmo de locomotora para activar diafragma y energía vocal.",
+          "duracion": 50,
+          "hecho": false,
+          "horaRealizado": null
+        }
+      ]
+    },
+    {
+      "id": "",
+      "nombre": "Ejercicios de comunicación verbal",
+      "ejercicios": [
+        {
+          "id": "",
+          "nombre": "Palabras al azar (fluidez)",
+          "descripcion": "Decir palabras al azar de forma continua, sin hacer pausas y sin usar muletillas. Mantener ritmo constante sin pensar demasiado la siguiente palabra. Quien haga una pausa o diga una muletilla, pierde.",
+          "duracion": 60,
+          "hecho": false,
+          "horaRealizado": null
+        },
+        {
+          "id": "",
+          "nombre": "Storytelling libre (ramificación de ideas)",
+          "descripcion": "Comenzar con una palabra inicial y construir una historia improvisada dejándose llevar por las ideas. Conectar cada nueva idea con la anterior usando 'porque', 'entonces', 'a partir de eso'. La historia puede cambiar de dirección pero debe mantener coherencia narrativa.",
+          "duracion": 60,
+          "hecho": false,
+          "horaRealizado": null
+        },
+        {
+          "id": "",
+          "nombre": "Explicación breve de un tema",
+          "descripcion": "Elegir un tema puntual y explicarlo de forma clara, directa y comprensible, evitando rodeos. Pensar: si tuviera que explicarlo a alguien que no sabe nada del tema, ¿cómo lo diría?",
+          "duracion": 60,
+          "hecho": false,
+          "horaRealizado": null
+        },
+        {
+          "id": "",
+          "nombre": "Dicción y articulación (trabalenguas)",
+          "descripcion": "Practicar los trabalenguas: Parangaricutirimícuaro, Pepe Pecas, Tres tristes tigres y La rueda del ferrocarril. Decirlos en tres etapas: normal, con lápiz entre los dientes (detrás de los caninos), y con el lápiz apoyado sobre la lengua. Priorizar pronunciación correcta antes que velocidad.",
+          "duracion": 90,
+          "hecho": false,
+          "horaRealizado": null
+        },
+        {
+          "id": "",
+          "nombre": "Dicción con resistencia (lápiz)",
+          "descripcion": "Colocar un lápiz entre los dientes detrás de los caninos, morder suavemente y leer los trabalenguas manteniendo la mayor claridad posible. Exagerar la apertura de la boca para compensar la resistencia.",
+          "duracion": 120,
+          "hecho": false,
+          "horaRealizado": null
+        },
+        {
+          "id": "",
+          "nombre": "Lectura articulada exagerada",
+          "descripcion": "Leer un capítulo o párrafo de un libro articulando cada palabra de forma exagerada, enfatizando vocales y consonantes. Abrir más la boca de lo habitual y pronunciar cada sílaba de manera consciente.",
+          "duracion": 300,
+          "hecho": false,
+          "horaRealizado": null
+        },
+        {
+          "id": "",
+          "nombre": "Síntesis oral",
+          "descripcion": "Leer un capítulo o párrafo de un libro y explicar la síntesis del contenido a otra persona de forma clara, breve y estructurada (idea principal + puntos clave). Comenzar con 'La idea principal es...' para ordenar la explicación.",
+          "duracion": 120,
+          "hecho": false,
+          "horaRealizado": null
+        },
+        {
+          "id": "",
+          "nombre": "Cadena de preguntas",
+          "descripcion": "Iniciar con una pregunta y hacer que la otra persona responda únicamente con otra pregunta, continuando la dinámica. No se permiten muletillas, pausas prolongadas, preguntas repetidas ni preguntas cerradas (¿sí?, ¿no?, ¿cierto?). Formular preguntas abiertas que permitan continuar la conversación.",
+          "duracion": 60,
+          "hecho": false,
+          "horaRealizado": null
+        }
+      ]
+    }
+  ]
+}

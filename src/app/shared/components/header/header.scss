@@ -1,0 +1,58 @@
+/* Valores del sidenav en un solo lugar para mantener consistencia */
+:host {
+  display: block;
+  height: 100%;
+  --sidenav-width-expanded: 160px;
+  --sidenav-width-collapsed: 60px;
+  --sidenav-transition: width 0.2s ease-in-out, padding-left 0.2s ease-in-out;
+
+  &.sidenav-collapsed:not(.is-mobile) {
+    .sidenav {
+      width: var(--sidenav-width-collapsed);
+    }
+
+    .sidenav-content-inner {
+      padding-left: var(--sidenav-width-collapsed);
+    }
+  }
+}
+
+.sidenav {
+  width: var(--sidenav-width-expanded);
+  transition: var(--sidenav-transition);
+}
+
+.sidenav-content-inner {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  padding-left: var(--sidenav-width-expanded);
+  transition: var(--sidenav-transition);
+
+  mat-toolbar {
+    flex-shrink: 0;
+  }
+
+  main {
+    flex: 1;
+    min-height: 0;
+    overflow: auto;
+  }
+}
+
+// En mobile el contenido va a ancho completo (el drawer es overlay)
+:host.is-mobile .sidenav-content-inner {
+  padding-left: 0;
+}
+
+.app-sidenav mat-nav-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.app-sidenav {
+  box-shadow: 8px 0 24px rgba(0, 0, 0, 0.18);
+  z-index: 20; // por si el content la tapa
+}

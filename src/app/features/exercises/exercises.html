@@ -1,0 +1,19 @@
+<div class="space-y-6 max-w-[900px] mx-auto w-full">
+  @for (group of groups(); track $index; let gi = $index) {
+    <section class="space-y-3">
+      <h3 class="text-sm font-semibold text-[color:var(--mat-sys-on-surface)]/80">
+        {{ group.nombre }}
+      </h3>
+
+      <div class="flex flex-col gap-3">
+        @for (exercise of group.ejercicios; track $index; let ei = $index) {
+          <app-exercise
+            [exercise]="exercise"
+            [index]="ei + 1"
+            (doneChange)="markExerciseDone(gi, ei, $event)"
+          />
+        }
+      </div>
+    </section>
+  }
+</div>

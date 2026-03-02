@@ -1,0 +1,38 @@
+<mat-sidenav-container class="h-full">
+  <mat-sidenav [mode]="isMobile() ? 'over' : 'side'" [opened]="isMobile() ? menuOpen : true"
+    [disableClose]="!isMobile()" class="app-sidenav sidenav overflow-hidden" (mouseenter)="onSidenavMouseEnter()"
+    (mouseleave)="onSidenavMouseLeave()">
+    <mat-nav-list class="flex flex-col gap-2">
+      @for (link of navigationLinks; track link.path) {
+      @if (link.disabled) {
+      <a mat-list-item [disabled]="true">
+        <mat-icon matListItemIcon>{{ link.icon }}</mat-icon>
+        @if (showNavLabels) { <span matListItemTitle>{{ link.label }}</span> }
+      </a>
+      } @else {
+      <a mat-list-item [routerLink]="link.path">
+        <mat-icon matListItemIcon>{{ link.icon }}</mat-icon>
+        @if (showNavLabels) { <span matListItemTitle>{{ link.label }}</span> }
+      </a>
+      }
+      }
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content class="!ml-0">
+    <div class="sidenav-content-inner">
+      <mat-toolbar>
+        @if (isMobile()) {
+        <button mat-icon-button (click)="toggleMobileMenu()" aria-label="Abrir menú">
+          <mat-icon>menu</mat-icon>
+        </button>
+        }
+        <span class="ml-2">Academy Voice Tracker</span>
+      </mat-toolbar>
+
+      <main class="p-4">
+        <ng-content />
+      </main>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
