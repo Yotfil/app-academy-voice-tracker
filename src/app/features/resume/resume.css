@@ -1,0 +1,138 @@
+/* Contenedor principal: columna flex que no desborda */
+.resume-shell {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  max-width: 900px;
+  margin: 0 auto;
+  width: 100%;
+  gap: 0.75rem;
+}
+
+/* Cabecera fija */
+.resume-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.resume-title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.resume-date {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--mat-sys-on-surface-variant);
+}
+
+/* Badge de progreso */
+.resume-badge {
+  display: flex;
+  align-items: baseline;
+  gap: 0.2rem;
+  font-size: 0.875rem;
+  color: var(--mat-sys-on-surface-variant);
+}
+
+.resume-badge__done {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--mat-sys-primary);
+}
+
+.resume-badge__total {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.resume-badge__label {
+  font-size: 0.75rem;
+  margin-left: 0.25rem;
+}
+
+/* Área scrollable con los grupos */
+.resume-scroll {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* Grupo de ejercicios */
+.resume-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.resume-group__name {
+  margin: 0 0 0.25rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--mat-sys-on-surface-variant);
+}
+
+/* Fila de un ejercicio */
+.resume-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.3rem 0.5rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+}
+
+.resume-row--done .resume-row__icon {
+  color: var(--mat-sys-primary);
+}
+
+.resume-row__icon {
+  font-size: 16px;
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  color: var(--mat-sys-error);
+}
+
+.resume-row__nombre {
+  flex-shrink: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 55%;
+  color: var(--mat-sys-on-surface);
+}
+
+/* Línea guía punteada entre nombre y hora */
+.resume-row__leader {
+  flex: 1;
+  height: 1px;
+  border-bottom: 1px dotted rgba(0, 0, 0, 0.2);
+  margin: 0 0.35rem;
+  align-self: flex-end;
+  margin-bottom: 0.25rem;
+}
+
+.resume-row__hora {
+  flex-shrink: 0;
+  font-size: 0.75rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--mat-sys-on-surface-variant);
+}
+
+.resume-empty {
+  color: var(--mat-sys-on-surface-variant);
+  font-size: 0.875rem;
+  text-align: center;
+  margin-top: 2rem;
+}

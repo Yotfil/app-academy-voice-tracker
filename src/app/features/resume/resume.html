@@ -1,0 +1,43 @@
+<div class="resume-shell">
+
+  <!-- Cabecera -->
+  <header class="resume-header">
+    <div>
+      <h2 class="resume-title">Resumen del día</h2>
+      <p class="resume-date">{{ today }}</p>
+    </div>
+    <div class="resume-badge">
+      <span class="resume-badge__done">{{ totalHechos }}</span>
+      <span class="resume-badge__sep">/</span>
+      <span class="resume-badge__total">{{ totalEjercicios }}</span>
+      <span class="resume-badge__label">completados</span>
+    </div>
+  </header>
+
+  <!-- Tabla de ejercicios -->
+  <div class="resume-scroll">
+    @for (group of groups(); track $index) {
+      <div class="resume-group">
+
+        <p class="resume-group__name">{{ group.nombre }}</p>
+
+        @for (e of group.ejercicios; track $index) {
+          <div class="resume-row" [class.resume-row--done]="e.hecho">
+            <span class="resume-row__nombre">{{ e.nombre }}</span>
+            <span class="resume-row__leader"></span>
+            <span class="resume-row__hora">{{ e.horaRealizado ?? '—' }}</span>
+            <mat-icon class="resume-row__icon">
+              {{ e.hecho ? 'check_circle' : 'cancel' }}
+            </mat-icon>
+          </div>
+        }
+
+      </div>
+    }
+
+    @if (groups().length === 0) {
+      <p class="resume-empty">No hay rutina registrada para hoy.</p>
+    }
+  </div>
+
+</div>
