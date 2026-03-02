@@ -1,0 +1,11 @@
+[build]
+  command = "ng build"
+  publish = "dist/app-academy-voice-tracker/browser"
+
+[[plugins]]
+  package = "@netlify/angular-runtime"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
