@@ -1,42 +1,52 @@
-<div class="resume-shell">
+<div class="flex flex-col h-full max-w-[900px] mx-auto w-full gap-[0.2rem]">
 
   <!-- Cabecera -->
-  <header class="resume-header">
+  <header class="flex items-center justify-between flex-shrink-0 pb-1 border-b border-black/[.08]">
     <div>
-      <h2 class="resume-title">Resumen del día</h2>
-      <p class="resume-date">{{ today }}</p>
+      <h2 class="m-0 text-base font-semibold">Resumen del día</h2>
+      <p class="m-0 text-[0.8rem] text-[color:var(--mat-sys-on-surface-variant)]">{{ today }}</p>
     </div>
-    <div class="resume-badge">
-      <span class="resume-badge__done">{{ totalHechos }}</span>
-      <span class="resume-badge__sep">/</span>
-      <span class="resume-badge__total">{{ totalEjercicios }}</span>
-      <span class="resume-badge__label">completados</span>
+    <div class="flex items-baseline gap-1 text-sm text-[color:var(--mat-sys-on-surface-variant)]">
+      <span class="text-xl font-bold text-[color:var(--mat-sys-primary)]">{{ totalHechos }}</span>
+      <span>/</span>
+      <span class="text-base font-medium">{{ totalEjercicios }}</span>
+      <span class="text-xs ml-1">completados</span>
     </div>
   </header>
 
   <!-- Tabla de ejercicios -->
-  <div class="resume-scroll">
+  <div class="flex-1 min-h-0 flex flex-col gap-[0.3rem]">
     @for (group of groups(); track $index) {
-      <div class="resume-group">
+    <div class="flex flex-col">
 
-        <p class="resume-group__name">{{ group.nombre }}</p>
+      <p
+        class="m-0 mb-1 text-[0.7rem] font-semibold uppercase tracking-[0.05em] text-[color:var(--mat-sys-on-surface-variant)]">
+        {{ group.nombre }}
+      </p>
 
-        @for (e of group.ejercicios; track $index) {
-          <div class="resume-row" [class.resume-row--done]="e.hecho">
-            <span class="resume-row__nombre">{{ e.nombre }}</span>
-            <span class="resume-row__leader"></span>
-            <span class="resume-row__hora">{{ e.horaRealizado ?? '—' }}</span>
-            <mat-icon class="resume-row__icon">
-              {{ e.hecho ? 'check_circle' : 'cancel' }}
-            </mat-icon>
-          </div>
-        }
-
+      @for (e of group.ejercicios; track $index) {
+      <div class="flex items-center gap-2 px-2 rounded-md text-[0.8rem]">
+        <span class="flex-shrink-0 whitespace-nowrap text-ellipsis max-w-[55%] text-[color:var(--mat-sys-on-surface)]">
+          {{ e.nombre }}
+        </span>
+        <!-- Línea guía punteada -->
+        <span class="resume-leader"></span>
+        <span class="flex-shrink-0 text-xs tabular-nums text-[color:var(--mat-sys-on-surface-variant)]">
+          {{ e.horaRealizado ?? '—' }}
+        </span>
+        <mat-icon class="!text-base flex-shrink-0" [class.icon--done]="e.hecho" [class.icon--pending]="!e.hecho">
+          {{ e.hecho ? 'check_circle' : 'cancel' }}
+        </mat-icon>
       </div>
+      }
+
+    </div>
     }
 
     @if (groups().length === 0) {
-      <p class="resume-empty">No hay rutina registrada para hoy.</p>
+    <p class="text-[color:var(--mat-sys-on-surface-variant)] text-sm text-center mt-8">
+      No hay rutina registrada para hoy.
+    </p>
     }
   </div>
 

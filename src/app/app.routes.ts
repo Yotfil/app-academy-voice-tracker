@@ -11,9 +11,6 @@ export const routes: Routes = [
     path: 'exercises', loadComponent: () => import('./features/exercises/exercises').then(component => component.Exercises)
   },
   {
-    path: 'resume', loadComponent: () => import('./features/resume/resume').then(component => component.Resume)
-  },
-  {
     path: 'exercise/:id', loadComponent: () => import('./features/exercise/exercise').then(component => component.Exercise)
   },
   {

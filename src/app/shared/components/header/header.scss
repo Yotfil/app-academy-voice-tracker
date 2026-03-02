@@ -32,6 +32,8 @@
 
   mat-toolbar {
     flex-shrink: 0;
+    --mat-toolbar-standard-height: 50px;
+    --mat-toolbar-mobile-height: 50px;
   }
 
   main {
